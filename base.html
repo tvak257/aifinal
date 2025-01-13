@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VNU-chatbot</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #0d1b2a;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .icons img {
+            margin: 0 15px;
+            width: 80px;
+        }
+
+        .preview {
+            background-color: #1b263b;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            margin-top: 30px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .code-box {
+            background-color: #112240;
+            padding: 15px;
+            border-radius: 5px;
+            color: #00d4ff;
+            text-align: left;
+            font-family: 'Courier New', Courier, monospace;
+            overflow-x: auto;
+        }
+
+        .footer {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #a8b2d1;
+        }
+
+        .footer span {
+            font-weight: bold;
+        }
+
+        .chatbox {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .chatbox__support {
+            background-color: #1b263b;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .chatbox__header {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            background-color: #112240;
+        }
+
+        .chatbox__image--header img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .chatbox__content--header {
+            flex: 1;
+        }
+
+        .chatbox__messages {
+            max-height: 200px;
+            overflow-y: auto;
+            padding: 10px;
+        }
+
+        .chatbox__footer {
+            display: flex;
+            padding: 10px;
+            background-color: #112240;
+        }
+
+        .chatbox__footer input {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            margin-right: 10px;
+            background-color: #1b263b;
+            color: #fff;
+        }
+
+        .chatbox__footer button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #00d4ff;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .chatbox__button button {
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .chatbox__button img {
+            width: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Your Own Customized ChatGPT</h1>
+        <div class="icons">
+            <img src="/static/images/robot.png" alt="nuclear" width="40px" height="70px">
+            <img src="/static/images/openai.png" alt="openai" width="40px" height="70px">
+        </div>
+        <div class="preview">
+            <div class="code-box">
+                <p>// Can you show how I can declare variables in JavaScript?</p>
+                <p>Sure! In JavaScript, you can declare variables using the <span style="color: #ffd700;">var</span>, <span style="color: #ffd700;">let</span>, or <span style="color: #ffd700;">const</span> keywords.</p>
+                <p>// Example:</p>
+                <p>let x = 10;<br>const y = "Hello";<br>var z = true;</p>
+            </div>
+        </div>
+        <div class="footer">
+            <p>TRUONG QUOC TE <span>VNUIS
+                <img src="/static/images/OIP.jpg" width='40px' height='40px'/>
+            </span></p>
+
+        </div>
+    </div>
+
+    <div class="chatbox">
+        <div class="chatbox__support">
+            <div class="chatbox__header">
+                <div class="chatbox__image--header">
+                    <img src="https://img.icons8.com/color/48/000000/circled-user-female-skin-type-5--v1.png" alt="image">
+                </div>
+                <div class="chatbox__content--header">
+                    <h4 class="chatbox__heading--header">Chat support</h4>
+                    <p class="chatbox__description--header">Hi. My name is Sam. How can I help you?</p>
+                </div>
+            </div>
+            <div class="chatbox__messages">
+                <div></div>
+            </div>
+            <div class="chatbox__footer">
+                <input type="text" placeholder="Write a message...">
+                <button class="chatbox__send--footer send__button">Send</button>
+            </div>
+        </div>
+        <div class="chatbox__button">
+            <button><img src="{{ url_for('static', filename='images/chatbox-icon.svg') }}" /></button>
+        </div>
+    </div>
+
+    <script>
+       // $SCRIPT_ROOT = {{ request.script_root|tojson }}
+    </script>
+
+    <script type="text/javascript" src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+
+</html>
